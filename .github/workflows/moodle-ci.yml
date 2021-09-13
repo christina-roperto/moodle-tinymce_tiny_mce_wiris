@@ -201,16 +201,16 @@ jobs:
         if: ${{ always() }}
         run: moodle-plugin-ci behat --profile default -vvv
 
-      # 5.5. Upload snapshots of errors
+      # 5.5. Upload snapshots of errors ( NOT Working )
       # Save videos and screenshots as test artifacts
       # https://github.com/actions/upload-artifact
-      - name: Upload behat screenshots (if, failed)
-        uses: actions/upload-artifact@master
-        # there might be no screenshots created when:
-        # - there are no test failures
-        # so only upload screenshots if previous step has failed
-        if: failure()
-        with:
-          name: screenshots-behat-${{ matrix.moodle-branch }}-${{ matrix.php }}
-          # path: '$GITHUB_WORKSPACE/behatfaildumps'
-          path: '/home/runner/work/moodle-tinymce_tiny_mce_wiris/moodle-tinymce_tiny_mce_wiris/behatfaildumps'
+      # - name: Upload behat screenshots (if, failed)
+      #   uses: actions/upload-artifact@master
+      #   # there might be no screenshots created when:
+      #   # - there are no test failures
+      #   # so only upload screenshots if previous step has failed
+      #   if: failure()
+      #   with:
+      #     name: screenshots-behat-${{ matrix.moodle-branch }}-${{ matrix.php }}
+      #     # path: '$GITHUB_WORKSPACE/behatfaildumps'
+      #     path: '/home/runner/work/moodle-tinymce_tiny_mce_wiris/moodle-tinymce_tiny_mce_wiris/behatfaildumps'
